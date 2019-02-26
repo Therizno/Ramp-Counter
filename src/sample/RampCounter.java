@@ -13,7 +13,8 @@ public class RampCounter extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("desktop.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
-        primaryStage.setFullScreen(true);
+        //primaryStage.setResizable(false);
+        //primaryStage.setFullScreen(true);
         primaryStage.show();
     }
 

@@ -13,7 +13,7 @@
    <top>
       <VBox prefHeight="58.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="21.0" prefWidth="704.0" text="Ramp Counter: X days" textAlignment="CENTER" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="1001.0" text="Ramp Counter: X days" textAlignment="CENTER" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button mnemonicParsing="false" text="Desktop" />
