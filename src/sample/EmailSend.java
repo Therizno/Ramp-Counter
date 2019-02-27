@@ -8,9 +8,9 @@ public class EmailSend {
 //email: "rampcounter@gmail.com"
 //password: "team" + our team name
 
-//as of now, imagePath is system dependent. Leave it as null or "" to send no image.
-    public static void sendFromGMail(String from, String pass, String[] to, String subject, String body, String imagePath) {
-    
+     //put the image you want to send in the resources folder. Leave imageName as null or "" to send no image.
+    public static void sendFromGMail(String from, String pass, String[] to, String subject, String body, String imageName) {
+
         Properties props = System.getProperties();
         String host = "smtp.gmail.com";
         props.put("mail.smtp.starttls.enable", "true");
@@ -39,7 +39,9 @@ public class EmailSend {
             message.setSubject(subject);
             message.setText(body);
 
-            if(imagePath != null && imagePath != ""){
+            if(imageName != null && imageName != ""){
+
+                imageName = System.getProperty("user.dir") + "/resources/" + imageName;
 
                 // Create the message part
                 BodyPart messageBodyPart = new MimeBodyPart();
@@ -55,9 +57,9 @@ public class EmailSend {
 
                 // Part two is attachment
                 messageBodyPart = new MimeBodyPart();
-                DataSource source = new FileDataSource(imagePath);
+                DataSource source = new FileDataSource(imageName);
                 messageBodyPart.setDataHandler(new DataHandler(source));
-                messageBodyPart.setFileName(imagePath);
+                messageBodyPart.setFileName(imageName);
                 multipart.addBodyPart(messageBodyPart);
 
                 // Send the complete message parts
