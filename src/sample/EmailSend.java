@@ -8,7 +8,9 @@ public class EmailSend {
 //email: "rampcounter@gmail.com"
 //password: "team" + our team name
 
-    public static void sendFromGMail(String from, String pass, String[] to, String subject, String body) {
+//as of now, imagePath is system dependent. Leave it as null or "" to send no image.
+    public static void sendFromGMail(String from, String pass, String[] to, String subject, String body, String imagePath) {
+    
         Properties props = System.getProperties();
         String host = "smtp.gmail.com";
         props.put("mail.smtp.starttls.enable", "true");
@@ -36,6 +38,32 @@ public class EmailSend {
 
             message.setSubject(subject);
             message.setText(body);
+
+            if(imagePath != null && imagePath != ""){
+
+                // Create the message part
+                BodyPart messageBodyPart = new MimeBodyPart();
+
+                // Fill the message
+                messageBodyPart.setText(body);
+
+                // Create a multipar message
+                Multipart multipart = new MimeMultipart();
+
+                // Set text message part
+                multipart.addBodyPart(messageBodyPart);
+
+                // Part two is attachment
+                messageBodyPart = new MimeBodyPart();
+                DataSource source = new FileDataSource(imagePath);
+                messageBodyPart.setDataHandler(new DataHandler(source));
+                messageBodyPart.setFileName(imagePath);
+                multipart.addBodyPart(messageBodyPart);
+
+                // Send the complete message parts
+                message.setContent(multipart );
+
+            }
 
             Transport transport = session.getTransport("smtp");
             transport.connect(host, from, pass);
