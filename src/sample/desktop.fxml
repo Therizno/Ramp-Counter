@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.desktopController">
    <top>
       <VBox prefHeight="58.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="104.0" text="Label" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="123.0" text="Ramp Counter: X" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="62.0" prefWidth="1000.0">
